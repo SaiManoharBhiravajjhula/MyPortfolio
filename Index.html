@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sai Manohar Bhiravajjhula | Software Engineer</title>
+  <meta name="description" content="Portfolio of Sai Manohar Bhiravajjhula, Software Engineer experienced in C#, Python, SQL, REST APIs, cloud technologies, AI-enabled solutions, Angular, React, Flask, Django, ASP.NET Core Web API, Azure and AWS." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #7b2ff7;
+      --primary-dark: #5f18df;
+      --text: #3f3f46;
+      --muted: #6b7280;
+      --bg: #f5f5f7;
+      --white: #ffffff;
+      --card: rgba(255,255,255,0.82);
+      --border: rgba(123,47,247,0.16);
+      --shadow: 0 20px 50px rgba(26, 26, 46, 0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top right, #ffffff 0%, #f2f2f6 45%, #ededf2 100%);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a { text-decoration: none; color: inherit; }
+    .container { width: min(1120px, 92%); margin: auto; }
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(245,245,247,0.88); backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+    nav { height: 82px; display: flex; align-items: center; justify-content: space-between; }
+    .logo { font-size: 28px; font-weight: 800; letter-spacing: -1px; }
+    .logo span { color: var(--primary); }
+    .nav-links { display: flex; align-items: center; gap: 34px; font-weight: 600; color: #555; }
+    .nav-links a:hover { color: var(--primary); }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 12px 28px; border-radius: 10px; font-weight: 700;
+      border: 2px solid var(--primary); transition: 0.25s ease;
+    }
+    .btn-primary { background: var(--primary); color: #fff; box-shadow: 0 12px 24px rgba(123,47,247,0.24); }
+    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+    .btn-outline { color: var(--primary); background: transparent; }
+    .btn-outline:hover { background: var(--primary); color: #fff; transform: translateY(-2px); }
+    .hero { min-height: calc(100vh - 82px); display: grid; grid-template-columns: 1.02fr .98fr; align-items: center; gap: 48px; padding: 64px 0; }
+    .hero h1 { font-size: clamp(40px, 6vw, 68px); line-height: 1.1; letter-spacing: -2px; margin-bottom: 8px; }
+    .hero h1 span { color: var(--primary); }
+    .hero h2 { font-size: clamp(24px, 3vw, 34px); color: #4b5563; margin-bottom: 16px; }
+    .hero p { max-width: 620px; color: var(--muted); font-size: 17px; margin-bottom: 28px; }
+    .hero-actions { display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 50px; }
+    .socials { display: flex; gap: 14px; }
+    .socials a {
+      width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%;
+      background: var(--primary); color: #fff; font-weight: 800; box-shadow: 0 10px 18px rgba(123,47,247,0.18);
+    }
+    .hero-card {
+      position: relative; min-height: 560px; display: grid; place-items: center;
+    }
+    .portrait {
+      width: min(430px, 100%); aspect-ratio: 1 / 1.18; border-radius: 36px;
+      background: linear-gradient(135deg, #fff, #eee8ff);
+      box-shadow: var(--shadow); border: 1px solid var(--border); position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center; text-align: center; padding: 36px;
+    }
+    .portrait::before { content: ''; position: absolute; width: 300px; height: 300px; border-radius: 50%; background: rgba(123,47,247,.12); top: -90px; right: -80px; }
+    .portrait::after { content: ''; position: absolute; width: 180px; height: 180px; border-radius: 50%; background: rgba(123,47,247,.10); bottom: -50px; left: -40px; }
+    .portrait-inner { position: relative; z-index: 2; width: 100%; }
+    .profile-photo { width: 100%; max-width: 390px; height: 450px; object-fit: cover; object-position: center top; border-radius: 30px; box-shadow: 0 18px 40px rgba(20,20,40,.16); display: block; margin: 0 auto; background: #eee8ff; }
+    .avatar { width: 170px; height: 170px; border-radius: 50%; background: var(--primary); color: white; display: none; place-items: center; font-size: 52px; font-weight: 800; margin: 0 auto 24px; box-shadow: 0 18px 34px rgba(123,47,247,.28); }
+    .portrait h3 { font-size: 30px; color: #333; line-height: 1.2; }
+    .portrait p { color: var(--muted); margin-top: 10px; }
+    section { padding: 86px 0; }
+    .section-title { text-align: center; margin-bottom: 38px; }
+    .section-title small { color: var(--primary); font-weight: 800; letter-spacing: 2px; text-transform: uppercase; }
+    .section-title h2 { font-size: clamp(30px, 4vw, 44px); line-height: 1.15; margin-top: 8px; }
+    .grid { display: grid; gap: 22px; }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 22px; padding: 26px; box-shadow: var(--shadow); }
+    .card h3 { font-size: 22px; margin-bottom: 12px; color: #31313a; }
+    .card p, .card li { color: var(--muted); }
+    ul { padding-left: 20px; }
+    li { margin: 8px 0; }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+    .chip { padding: 9px 14px; border-radius: 999px; background: #fff; border: 1px solid var(--border); color: #555; font-weight: 600; font-size: 14px; }
+    .timeline { display: grid; gap: 24px; }
+    .job { position: relative; padding-left: 24px; }
+    .job::before { content: ''; position: absolute; left: 0; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 0 6px rgba(123,47,247,.13); }
+    .job-head { display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; margin-bottom: 4px; }
+    .job-head h3 { margin: 0; }
+    .date { color: var(--primary); font-weight: 800; white-space: nowrap; }
+    .client { color: #555; font-weight: 600; margin-bottom: 10px; }
+    .project-label { color: var(--primary); font-weight: 800; margin: 18px 0 6px; }
+    .contact-box { text-align: center; max-width: 780px; margin: 0 auto; }
+    .contact-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 22px; }
+    footer { padding: 30px 0; text-align: center; color: var(--muted); border-top: 1px solid rgba(0,0,0,0.06); }
+    @media (max-width: 900px) {
+      .hero, .grid-2, .grid-3 { grid-template-columns: 1fr; }
+      .hero-card { min-height: auto; }
+      .nav-links { display: none; }
+    }
+    @media (max-width: 520px) {
+      nav { height: 70px; }
+      .hero { padding: 44px 0; }
+      .btn { width: 100%; }
+      .hero-actions { gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <!--
+    Vercel upload instructions:
+    1. Keep this file name as index.html.
+    2. Add your photo in the same folder and name it: profile-photo.jpg
+    3. Add your resume PDF in the same folder and name it: Sai_Manohar_Bhiravajjhula_Resume.pdf
+  -->
+  <header>
+    <nav class="container">
+      <a class="logo" href="#home"><span>Sai</span>.</a>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="Sai_Manohar_Bhiravajjhula_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+        <a href="#contact" class="btn btn-primary">Let's Talk</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container" id="home">
+      <div>
+        <h1>Hi, I'm <span>Sai Manohar Bhiravajjhula</span></h1>
+        <h2>Software Engineer</h2>
+        <p>Software Engineer with experience building enterprise applications across fintech, SaaS, cloud, and data-driven environments using C#, Python, SQL, REST APIs, cloud technologies, and AI-enabled solutions.</p>
+        <div class="hero-actions">
+          <a href="mailto:saimanohar.bhiravajjhula@gmail.com" class="btn btn-primary">Hire Me</a>
+          <a href="#experience" class="btn btn-outline">See Experience</a>
+          <a href="Sai_Manohar_Bhiravajjhula_Resume.pdf" class="btn btn-outline" target="_blank" rel="noopener" download>Download Resume</a>
+        </div>
+        <div class="socials" aria-label="Social links">
+          <a href="https://www.linkedin.com/in/sai-manohar-bhiravajjhula-67a744172/" target="_blank" rel="noopener">in</a>
+          <a href="mailto:saimanohar.bhiravajjhula@gmail.com">@</a>
+          <a href="tel:+13144500335">☎</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="portrait">
+          <div class="portrait-inner">
+            <!-- Upload your photo with this exact file name in the same folder as index.html: profile-photo.jpg -->
+            <img class="profile-photo" src="profile-photo.jpg" alt="Sai Manohar Bhiravajjhula profile photo" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+            <div class="avatar">SB</div>
+            <h3>Full-Stack, Cloud & AI-Enabled Development</h3>
+            <p>C# · Python · Angular · React · Azure · AWS · REST APIs</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-title"><small>About Me</small><h2>Building secure, scalable enterprise software</h2></div>
+        <div class="grid grid-2">
+          <div class="card">
+            <h3>Profile Summary</h3>
+            <p>I build full-stack and backend solutions for enterprise environments. My work includes frontend applications, backend APIs, database optimization, cloud integrations, automation, chatbot solutions, CI/CD pipelines, security controls, and production-ready deployments.</p>
+          </div>
+          <div class="card">
+            <h3>Contact Details</h3>
+            <p><strong>Phone:</strong> (314) 450-0335</p>
+            <p><strong>Email:</strong> <a href="mailto:saimanohar.bhiravajjhula@gmail.com">saimanohar.bhiravajjhula@gmail.com</a></p>
+            <p><strong>Location:</strong> FL, USA</p>
+            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/sai-manohar-bhiravajjhula-67a744172/" target="_blank" rel="noopener">linkedin.com/in/sai-manohar-bhiravajjhula-67a744172</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-title"><small>Skills</small><h2>Technical Skills & Interests</h2></div>
+        <div class="grid grid-3">
+          <div class="card"><h3>Programming Languages</h3><div class="chips"><span class="chip">Python</span><span class="chip">C#</span><span class="chip">JavaScript</span><span class="chip">TypeScript</span><span class="chip">Java</span><span class="chip">SQL</span></div></div>
+          <div class="card"><h3>Frontend Technologies</h3><div class="chips"><span class="chip">Angular</span><span class="chip">React</span><span class="chip">RxJS</span><span class="chip">Material UI</span><span class="chip">Tailwind CSS</span><span class="chip">Bootstrap</span><span class="chip">jQuery</span></div></div>
+          <div class="card"><h3>Backend Frameworks</h3><div class="chips"><span class="chip">Flask</span><span class="chip">Django</span><span class="chip">ASP.NET Core Web API</span><span class="chip">RESTful Services</span></div></div>
+          <div class="card"><h3>AI & Intelligent Systems</h3><div class="chips"><span class="chip">Azure Bot Framework V4</span><span class="chip">Azure AI Search</span><span class="chip">LUIS (CLU)</span><span class="chip">QnA Maker (CQA)</span><span class="chip">NLP Pipeline Development</span><span class="chip">Conversational AI</span><span class="chip">Prompt Engineering</span><span class="chip">Responsible AI Practices</span></div></div>
+          <div class="card"><h3>Database Systems</h3><div class="chips"><span class="chip">PostgreSQL</span><span class="chip">MongoDB</span><span class="chip">SQL Server</span><span class="chip">Amazon RDS</span></div></div>
+          <div class="card"><h3>Cloud Platforms</h3><div class="chips"><span class="chip">Azure Functions</span><span class="chip">Azure App Services</span><span class="chip">Azure Storage</span><span class="chip">AWS EC2</span><span class="chip">AWS S3</span><span class="chip">AWS RDS</span><span class="chip">Oracle Cloud</span></div></div>
+          <div class="card"><h3>DevOps & Operations</h3><div class="chips"><span class="chip">Docker</span><span class="chip">GitHub Actions</span><span class="chip">Azure DevOps</span><span class="chip">CI/CD Pipelines</span><span class="chip">Nginx</span><span class="chip">GitLab</span></div></div>
+          <div class="card"><h3>Security & Enterprise</h3><div class="chips"><span class="chip">JWT</span><span class="chip">OAuth 2.0</span><span class="chip">RBAC</span><span class="chip">API Security</span><span class="chip">CORS Policies</span><span class="chip">VAPT Remediation</span></div></div>
+          <div class="card"><h3>Automation & Monitoring</h3><div class="chips"><span class="chip">ServiceNow Incident</span><span class="chip">ServiceNow Change</span><span class="chip">Red Hat Ansible Automation Platform</span><span class="chip">Splunk Log Monitoring</span><span class="chip">Splunk Dashboards</span><span class="chip">SQL Server Reporting Services</span></div></div>
+          <div class="card"><h3>Coursework</h3><div class="chips"><span class="chip">Data Structures & Algorithms</span><span class="chip">Object Oriented Programming</span><span class="chip">Machine Learning</span><span class="chip">Networking</span><span class="chip">Web Services</span><span class="chip">Web Development</span><span class="chip">SDLC</span><span class="chip">Linear Programming</span><span class="chip">Operating System</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-title"><small>Work Experience</small><h2>Professional Experience</h2></div>
+        <div class="timeline">
+          <div class="card job">
+            <div class="job-head"><h3>HCL Technologies — Software Engineer</h3><span class="date">Sept 2025 – Present</span></div>
+            <p class="client">Client: Deutsche Bank, Jacksonville, FL</p>
+            <ul>
+              <li>Developed Python backend applications and automation services supporting enterprise-scale workflows and business operations.</li>
+              <li>Built reusable APIs, libraries, and automation frameworks, improving code maintainability and development efficiency.</li>
+              <li>Implemented CI/CD pipelines using GitLab and version control best practices to support automated software delivery.</li>
+              <li>Integrated backend services with infrastructure and cloud platforms using Python and Ansible-based automation solutions.</li>
+              <li>Collaborated with engineering teams to resolve production issues, optimize application performance, and deliver new functionality.</li>
+              <li>Participated in Agile development processes including sprint planning, code reviews, testing, deployment, and release support.</li>
+            </ul>
+          </div>
+
+          <div class="card job">
+            <div class="job-head"><h3>Saint Louis University — Software Engineering Intern</h3><span class="date">Feb 2024 – Aug 2024</span></div>
+            <p class="client">Client: The Haven of Grace, St. Louis, MO</p>
+            <ul>
+              <li>Developed a full-stack web application using React frontend and Python Flask backend, implementing secure and scalable architecture.</li>
+              <li>Built RESTful APIs using Flask MVC and MongoDB for data storage, retrieval, and reporting.</li>
+              <li>Implemented JWT authentication and RBAC authorization to secure client data access.</li>
+              <li>Added password encryption, token-based reset functionality, CSV exports, and dynamic form validations.</li>
+              <li>Deployed the application on Vercel using GitHub Actions CI/CD and configured DNS for production hosting.</li>
+            </ul>
+          </div>
+
+          <div class="card job">
+            <div class="job-head"><h3>Apps Associates LLC — Associate Cloud Consultant</h3><span class="date">Nov 2021 – Aug 2023</span></div>
+            <p class="client">Client: SmartDog</p>
+            <ul>
+              <li>Developed enterprise SaaS dashboards using Angular 12, WebSockets, lazy loading, RxJS, and PWA capabilities across Operations, Cost Management, Compliance, and Service Management modules.</li>
+              <li>Built and maintained backend services using Python Flask, Celery, PostgreSQL, and Amazon RDS, supporting asynchronous processing and workflow automation.</li>
+              <li>Developed and optimized RESTful APIs through request/response optimization, JSON processing, and database tuning, improving application performance and scalability.</li>
+              <li>Integrated AWS cost and usage data from cloud management APIs to deliver reporting, analytics, and operational insights for enterprise customers.</li>
+              <li>Collaborated with cross-functional teams on feature development, code reviews, CI/CD releases, and Agile sprint delivery.</li>
+            </ul>
+          </div>
+
+          <div class="card job">
+            <div class="job-head"><h3>Acuvate Software Pvt Ltd — Software Engineer</h3><span class="date">Dec 2018 – Nov 2021</span></div>
+            <p class="project-label">Client: Unilever</p>
+            <ul>
+              <li>Developed enterprise chatbot applications using Azure Bot Framework V4, delivering conversational experiences through dialog management, adaptive cards, and state-based interactions.</li>
+              <li>Built intelligent chatbot capabilities using LUIS, QnA Maker, and Azure AI Search to support intent recognition, knowledge-based responses, and natural language interactions.</li>
+              <li>Integrated chatbot solutions with Azure Functions, .NET APIs, and backend services to automate business workflows and enable real-time information retrieval.</li>
+              <li>Deployed multi-channel bots across Web Chat, Direct Line API, and enterprise communication platforms, ensuring secure and scalable user engagement.</li>
+              <li>Implemented Application Insights monitoring, Azure Storage, authentication, and security controls to improve observability, reliability, and enterprise compliance.</li>
+            </ul>
+            <p class="project-label">Client: Bajaj FinServ - B2B Financial Platform</p>
+            <ul>
+              <li>Migrated legacy .NET Framework applications to Angular 8 SPA, implementing component-based architecture, routing, reactive forms, lazy loading, and reusable UI components to improve user experience.</li>
+              <li>Developed and maintained ASP.NET Core Web APIs and RESTful services in C#, enabling secure and scalable communication between frontend and backend systems.</li>
+              <li>Optimized SQL Server queries, Entity Framework operations, and stored procedures, improving application performance for high-volume financial transactions.</li>
+              <li>Implemented JWT authentication, refresh token workflows, RBAC authorization, and CORS policies, ensuring secure access and compliance with enterprise security standards.</li>
+              <li>Applied SOLID principles, dependency injection, unit testing, and secure coding practices, while addressing VAPT findings and improving application maintainability and code quality.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-title"><small>Education</small><h2>Academic Background</h2></div>
+        <div class="grid grid-2">
+          <div class="card">
+            <h3>Saint Louis University</h3>
+            <p><strong>Location:</strong> St. Louis, MO</p>
+            <p><strong>Degree:</strong> Master of Science in Information Systems</p>
+            <p><strong>Graduation:</strong> May 2025</p>
+          </div>
+          <div class="card">
+            <h3>Lendi Institute of Engineering & Technology</h3>
+            <p><strong>Location:</strong> India</p>
+            <p><strong>Degree:</strong> Bachelor of Engineering in Computer Science Engineering</p>
+            <p><strong>Graduation:</strong> May 2018</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="card contact-box">
+          <div class="section-title" style="margin-bottom:18px;"><small>Contact</small><h2>Let's build something meaningful</h2></div>
+          <p>I am open to Software Engineer, Full-Stack Developer, Backend Developer, Frontend Developer, Cloud, and AI-enabled application development opportunities.</p>
+          <div class="contact-list">
+            <a class="btn btn-primary" href="mailto:saimanohar.bhiravajjhula@gmail.com">Email Me</a>
+            <a class="btn btn-outline" href="tel:+13144500335">Call Me</a>
+            <a class="btn btn-outline" href="https://www.linkedin.com/in/sai-manohar-bhiravajjhula-67a744172/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn btn-outline" href="Sai_Manohar_Bhiravajjhula_Resume.pdf" target="_blank" rel="noopener" download>Download Resume</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 Sai Manohar Bhiravajjhula. All rights reserved.</div>
+  </footer>
+</body>
+</html>
